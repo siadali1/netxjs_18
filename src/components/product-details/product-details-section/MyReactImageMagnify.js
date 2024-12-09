@@ -1,34 +1,27 @@
 import React from "react";
-
-import ReactImageMagnify from "react-image-magnify";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 const MyReactImageMagnify = (props) => {
   return (
     <div>
-      <ReactImageMagnify
-        {...props}
-        {...{
-          smallImage: {
-            alt: "Wristwatch by Ted Baker London",
-            isFluidWidth: true,
-            src: require("./cover.png"),
-          },
-          largeImage: {
-            src: require("./cover.png"),
-            width: 1000,
-            height: 480,
-          },
-          enlargedImageContainerStyle: {
-            zIndex: "1500",
-          },
-          enlargedImageContainerDimensions: {
-            width: "100%",
-            height: "100%",
-          },
-        }}
-      />
+      <Zoom>
+        <img
+          alt="Wristwatch by Ted Baker London"
+          src={require("./cover.png")}
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            display: "block",
+          }}
+          {...props}
+        />
+      </Zoom>
     </div>
   );
 };
+
+export default MyReactImageMagnify;
+
 
 export default MyReactImageMagnify;
